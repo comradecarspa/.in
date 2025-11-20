@@ -1,10 +1,11 @@
 /* CSS Variables for easy theme customization */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --accent-color: #28a745;
-    --text-color: #333;
-    --bg-color: #fff;
+    --primary-color: #ac904a;
+    --secondary-color: #806229;
+    --accent-color: #817f6f;
+    --text-color: #806229;
+    --bg-color: #edeee5;
+    --light-accent: #ede7ed;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --border-radius: 12px;
     --border-radius-large: 24px;
@@ -141,6 +142,12 @@ img {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+}
+
 .hero__bg {
     position: absolute;
     top: 0;
@@ -164,7 +171,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    background: linear-gradient(135deg, rgba(172, 144, 74, 0.3), rgba(0, 0, 0, 0.7));
 }
 
 .hero__content {
@@ -235,6 +242,13 @@ img {
     text-decoration: none;
 }
 
+@media (max-width: 768px) {
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
 .btn--primary {
     background-color: var(--primary-color);
     color: white;
@@ -242,9 +256,9 @@ img {
 
 .btn--primary:hover,
 .btn--primary:focus {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(172, 144, 74, 0.3);
 }
 
 .btn:disabled {
@@ -281,14 +295,14 @@ img {
 
 /* About */
 .about {
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, var(--light-accent) 0%, var(--bg-color) 100%);
 }
 
 /* Services */
 .services__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
 }
 
 .service-card {
@@ -471,7 +485,7 @@ img {
 }
 
 .social-links a:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
 }
 
@@ -516,7 +530,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(172, 144, 74, 0.1);
 }
 
 textarea {
@@ -532,10 +546,10 @@ textarea {
 }
 
 .services-fieldset {
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--accent-color);
     border-radius: var(--border-radius-large);
     padding: 1.5rem;
-    background-color: #f8f9fa;
+    background-color: var(--light-accent);
     margin-top: 0.5rem;
 }
 
@@ -544,9 +558,9 @@ textarea {
     font-size: 1.1rem;
     color: var(--primary-color);
     padding: 0 1rem;
-    background-color: white;
+    background-color: var(--bg-color);
     border-radius: var(--border-radius);
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--accent-color);
 }
 
 .services-grid {
@@ -571,9 +585,9 @@ textarea {
 
 .service-option:hover {
     border-color: var(--primary-color);
-    background-color: #f8f9fa;
+    background-color: var(--light-accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(172, 144, 74, 0.15);
 }
 
 .service-option input[type="checkbox"] {
@@ -595,7 +609,7 @@ textarea {
 }
 
 .service-option input[type="checkbox"]:focus + .service-label::before {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(172, 144, 74, 0.25);
 }
 
 .service-label {
@@ -696,19 +710,28 @@ textarea {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav {
+        position: relative;
+    }
+
     .nav__list {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: var(--bg-color);
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
         flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: var(--shadow);
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        box-shadow: none;
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         transition: var(--transition);
+        gap: 2rem;
+        z-index: 999;
     }
 
     .nav__list.nav--active {
@@ -717,8 +740,26 @@ textarea {
         visibility: visible;
     }
 
+    .nav__list a {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: var(--border-radius);
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        transition: var(--transition);
+    }
+
+    .nav__list a:hover {
+        background-color: var(--secondary-color);
+        transform: scale(1.05);
+    }
+
     .nav__toggle {
         display: flex;
+        z-index: 1000;
     }
 
     .hero__title {
@@ -771,6 +812,34 @@ textarea {
 
     .booking-form {
         padding: 1rem;
+    }
+
+    .hero__title {
+        font-size: 1.8rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .gallery__grid img {
+        height: 120px;
+    }
+
+    .contact__info p {
+        font-size: 0.9rem;
     }
 }
 

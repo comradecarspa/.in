@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Service - Comrades CarSpa</title>
+    <meta name="description" content="Book your car detailing service at Comrades CarSpa. Fill out the form to schedule your appointment via WhatsApp.">
+    <meta name="keywords" content="book car detailing, schedule service, Comrades CarSpa booking">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="/assets/brand-font.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="canonical" href="https://comradescarspa.com/book.html">
+    <link rel="icon" href="/assets/logo.png" type="image/png">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Comrades CarSpa">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html" class="header__logo">
+                    <img src="assets/logo.png" alt="Comrades CarSpa Logo" width="150" height="50">
+                </a>
+                <nav class="nav">
+                    <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav__list">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="book.html" class="btn btn--primary">Book Now</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section book">
+            <div class="container">
+                <h2>Book Your Service</h2>
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="carMake">Car Name *</label>
+                            <input type="text" id="carMake" name="carMake" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carModel">Car Model *</label>
+                            <input type="text" id="carModel" name="carModel" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="carYear">Car Year *</label>
+                        <input type="number" id="carYear" name="carYear" min="1900" max="2024" required>
+                    </div>
+                    <div class="form-group">
+                        <fieldset class="services-fieldset">
+                            <legend>Select Services *</legend>
+                            <div class="services-grid">
+                                <label class="service-option">
+                                    <input type="checkbox" name="services" value="Interior Detailing">
+                                    <span class="service-label">
+                                        <strong>Interior Detailing</strong>
+                                        <small>Clean and sanitize interior surfaces</small>
+                                    </span>
+                                </label>
+                                <label class="service-option">
+                                    <input type="checkbox" name="services" value="Exterior Detailing">
+                                    <span class="service-label">
+                                        <strong>Exterior Detailing</strong>
+                                        <small>Wash, polish and protect exterior</small>
+                                    </span>
+                                </label>
+                                <label class="service-option">
+                                    <input type="checkbox" name="services" value="Teflon Coating">
+                                    <span class="service-label">
+                                        <strong>Teflon Coating</strong>
+                                        <small>Cost-effective protective coating</small>
+                                    </span>
+                                </label>
+                                <label class="service-option">
+                                    <input type="checkbox" name="services" value="Ceramic Coating">
+                                    <span class="service-label">
+                                        <strong>Ceramic Coating</strong>
+                                        <small>Premium SiO2 nanotechnology protection</small>
+                                    </span>
+                                </label>
+                                <label class="service-option">
+                                    <input type="checkbox" name="services" value="Graphene Coating">
+                                    <span class="service-label">
+                                        <strong>Graphene Coating</strong>
+                                        <small>Advanced graphene-based protection</small>
+                                    </span>
+                                </label>
+                                <label class="service-option">
+                                    <input type="checkbox" name="services" value="PPF">
+                                    <span class="service-label">
+                                        <strong>PPF (Paint Protection Film)</strong>
+                                        <small>Ultimate paint protection</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            I agree to be contacted via WhatsApp/call *
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--large">Submit Booking</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Comrades CarSpa. All rights reserved.</p>
+            <p>Need help choosing a service? <a href="https://wa.me/919876543210?text=Hi%2C%20I%20need%20help%20choosing%20a%20service%20for%20my%20car." target="_blank">Chat with us on WhatsApp</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for order summary -->
+    <div id="summaryModal" class="modal">
+        <div class="modal__content">
+            <h3>Booking Summary</h3>
+            <div id="summaryContent"></div>
+            <div class="modal__actions">
+                <button id="editBtn" class="btn btn--secondary">Edit</button>
+                <button id="confirmBtn" class="btn btn--primary">Book Slot</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
